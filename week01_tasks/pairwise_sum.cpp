@@ -12,10 +12,10 @@ namespace pairwise {
         int new_len = len >> 1;
 
         for (size_t i = 0; i < new_len - new_len % 4; i += 4) {
-          x[i] = x[i << 1] + x[(i << 1) + 1];
-          x[i + 1] = x[(i + 1) << 1] + x[((i + 1) << 1) + 1];
-          x[i + 2] = x[(i + 2) << 1] + x[((i + 2) << 1) + 1];
-          x[i + 3] = x[(i + 3) << 1] + x[((i + 3) << 1) + 1];
+          x[i] = x[2 * i] + x[2 * i + 4];
+          x[i + 1] = x[2 * i + 1] + x[2 * i + 5];
+          x[i + 2] = x[2 * i + 2] + x[2 * i + 6];
+          x[i + 3] = x[2 * i + 3] + x[2 * i + 7];
         }
 
         for (size_t i = new_len - new_len % 4; i < new_len; i++) {
