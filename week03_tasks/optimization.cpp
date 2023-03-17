@@ -126,15 +126,15 @@ int main() {
             std::swap(left[0], right[0]);
         }
         vd ans = opt::bisection(rastrigin_one_dim_grad, left, right, eps_f, eps_a);
+        average_iters_amount += opt::iters_counter;
         if (fabs(rastrigin_one_dim_grad(ans)[0]) > eps_f) {
             // Метод сошелся к точке, значение в которой сильно отличается от 0
             continue;
         }
-        average_iters_amount += opt::iters_counter;
         extremums_amount++;
     }
 
-    average_iters_amount /= extremums_amount;
+    average_iters_amount /= N;
     std::cout << "(Одномерная функция Растригина, метод бисекции) Среднее число итераций: " << average_iters_amount <<
         " итераций, кол-во раз когда метод (почти) попал в экстремум: " << extremums_amount << " из " << N << std::endl;
 
@@ -144,15 +144,15 @@ int main() {
     for (int i = 0; i < N; i++) {
         vd x0 = {dis(gen), dis(gen)};
         vd ans = opt::newton(rastrigin_one_dim_grad, rastrigin_one_dim_hessian_inv, x0, eps_f, eps_a);
+        average_iters_amount += opt::iters_counter;
         if (fabs(rastrigin_one_dim_grad(ans)[0]) > eps_f) {
             // Метод сошелся к точке, значение в которой сильно отличается от 0
             continue;
         }
-        average_iters_amount += opt::iters_counter;
         extremums_amount++;
     }
 
-    average_iters_amount /= extremums_amount;
+    average_iters_amount /= N;
     std::cout << "(Одномерная функция Растригина, метод Ньютона) Среднее число итераций: " << average_iters_amount <<
               " итераций, кол-во раз когда метод (почти) попал в экстремум: " << extremums_amount << " из " << N << std::endl;
 
@@ -169,15 +169,15 @@ int main() {
             std::swap(left[1], right[1]);
         }
         vd ans = opt::bisection(rastrigin_two_dim_grad, left, right, eps_f, eps_a);
+        average_iters_amount += opt::iters_counter;
         if (opt::norm(rastrigin_two_dim_grad(ans)) > eps_f) {
             // Метод сошелся к точке, значение в которой сильно отличается от 0
             continue;
         }
-        average_iters_amount += opt::iters_counter;
         extremums_amount++;
     }
 
-    average_iters_amount /= extremums_amount;
+    average_iters_amount /= N;
     std::cout << "(Двумерная функция Растригина, метод бисекции) Среднее число итераций: " << average_iters_amount <<
               " итераций, кол-во раз когда метод (почти) попал в экстремум: " << extremums_amount << " из " << N << std::endl;
 
@@ -187,15 +187,15 @@ int main() {
     for (int i = 0; i < N; i++) {
         vd x0 = {dis(gen), dis(gen)};
         vd ans = opt::newton(rastrigin_two_dim_grad, rastrigin_two_dim_hessian_inv, x0, eps_f, eps_a);
+        average_iters_amount += opt::iters_counter;
         if (opt::norm(rastrigin_two_dim_grad(ans)) > eps_f) {
             // Метод сошелся к точке, значение в которой сильно отличается от 0
             continue;
         }
-        average_iters_amount += opt::iters_counter;
         extremums_amount++;
     }
 
-    average_iters_amount /= extremums_amount;
+    average_iters_amount /= N;
     std::cout << "(Двумерная функция Растригина, метод Ньютона) Среднее число итераций: " << average_iters_amount <<
               " итераций, кол-во раз когда метод (почти) попал в экстремум: " << extremums_amount << " из " << N << std::endl;
 
