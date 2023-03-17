@@ -1,4 +1,4 @@
-// Tasks 3 and 4
+// Task 3
 
 #include <vector>
 #include <string>
