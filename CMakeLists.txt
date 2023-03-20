@@ -13,3 +13,6 @@ add_executable(statistics week01_tasks/statistics.cpp week01_tasks/statistics.hp
 add_executable(length week01_tasks/vector_length.cpp week03_tasks/optimization.cpp)
 add_executable(opt week03_tasks/optimization.cpp)
 add_executable(tank week03_tasks/tank.cpp)
+add_executable(global_opt week04_tasks/global_optimization.cpp)
+add_executable(equation_solving week04_tasks/equation_solving.cpp)
+add_executable(comp_geom week15_tasks/computational_geometry.cpp)
